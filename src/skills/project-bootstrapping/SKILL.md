@@ -1,6 +1,7 @@
 ---
 name: project-bootstrapping
 description: Defines how new projects are scaffolded, including Go API templates, the BKit library ecosystem, JS/TS setup, and build tooling. Trigger when creating a new project, initializing a codebase, or deciding which libraries to use.
+disable-model-invocation: true
 ---
 # Project Bootstrapping Standards
 

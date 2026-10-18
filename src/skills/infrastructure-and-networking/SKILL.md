@@ -1,6 +1,7 @@
 ---
 name: infrastructure-and-networking
 description: Architectural guidelines and tech stack rules for deploying, managing, and securing servers, networks, and services. Trigger for any sysadmin, DevOps, routing, or IaC task.
+disable-model-invocation: true
 ---
 # Infrastructure & Networking Standards
 
