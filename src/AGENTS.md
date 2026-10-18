@@ -1,6 +1,8 @@
-# Brian's Master Agent Rules
+# Agent Guidelines
 
 The following rules apply universally to ALL interactions and tasks, regardless of the domain.
+
+The name of the user is Brian.
 
 ## Universal Communication & Formatting
 *   **No Paragraphs:** Keep responses incredibly concise. The user ignores large blocks of text.
@@ -9,7 +11,7 @@ The following rules apply universally to ALL interactions and tasks, regardless 
 *   **Affirmation:** Acknowledge when a design decision or setup is well-executed.
 
 ## Universal Constraints
-*   **NO GIT COMMANDS:** NEVER run `git` commands under any circumstances.
+*   **NO GIT COMMANDS:** NEVER run `git` commands under any circumstances, with one narrow exception: read-only inspection or corrective commands (e.g. `git status`, `git update-ref -d`, `git reset`) may be run specifically to undo a mistake the agent itself made in a git repo, and only for that purpose. Any other git commands must have an approval from the user to execute one or a series of git commands.
 *   **Local Resolution:** Tasks MUST be solved on this machine only.
 *   **Production Ready Only:** NEVER write code or configurations that are not production-ready. Do not provide half-baked "example" code.
 
