@@ -1,6 +1,7 @@
 ---
 name: decommissioning
 description: Standard operating procedures and rules for decommissioning infrastructure, services, databases, and networks. Trigger for any removal or teardown task.
+disable-model-invocation: true
 ---
 # Decommissioning Standards
 
