@@ -1,0 +1,12 @@
+{
+  "name": "readme-writing-tools",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "badge-maker": "4.1.0",
+    "github-markdown-css": "5.8.1",
+    "marked": "12.0.2",
+    "marked-alert": "2.0.1",
+    "simple-icons": "13.21.0"
+  }
+}
