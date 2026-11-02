@@ -101,3 +101,4 @@ Central message: "Automate the first pass so reviewers can spend their time on d
 Possible sequence: current review → sorting bottleneck → automated first pass → reviewer decision → how a monitored rollout would test the change. The close asks for the rollout decision, not a generic endorsement of automation. This sequence is a candidate to test with the user, not a template to impose on other topics.
 
 Another topic: "An on-call handoff depends on memory, so the next engineer repeats discovery work." A fitting sequence could be current handoff → information lost → shared handoff record → receiving engineer confirms ownership → incident review improves the record. Here the change is a team practice, not an automation story; the same audience-first method still applies.
+
