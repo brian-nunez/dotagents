@@ -16,7 +16,7 @@
 <p align="center">
   <img alt="Written in Bash and Markdown" src="https://img.shields.io/badge/written%20in-Bash%20%C2%B7%20Markdown-4338ca?style=flat-square&logo=gnubash&logoColor=white">
   <img alt="Agents: Claude Code, Codex, Gemini, OpenCode" src="https://img.shields.io/badge/agents-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20Gemini%20%C2%B7%20OpenCode-6366f1?style=flat-square">
-  <img alt="Skills: 8" src="https://img.shields.io/badge/skills-8-4338ca?style=flat-square">
+  <img alt="Skills: 9" src="https://img.shields.io/badge/skills-9-4338ca?style=flat-square">
   <br>
   <a href="https://www.linkedin.com/in/brianjnunez/"><img alt="LinkedIn: Brian Nunez" src="https://img.shields.io/badge/LinkedIn-Brian%20Nunez-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>
 </p>
@@ -66,6 +66,7 @@ Each skill is a directory under [`src/skills/`](src/skills) with a `SKILL.md` fi
 | **[Infrastructure and Networking](src/skills/infrastructure-and-networking/SKILL.md)** | Manual | Guidelines for deploying, managing and securing servers, networks and services. |
 | **[Messaging Architecture](src/skills/messaging-architecture/SKILL.md)** | Manual | Shapes an audience-first message before writing slides, diagrams, a talk track or a document. |
 | **[Project Bootstrapping](src/skills/project-bootstrapping/SKILL.md)** | Manual | How new projects are scaffolded: Go API templates, the BKit library ecosystem, JS/TS setup and build tooling. |
+| **[Project Foundations](src/skills/project-foundations/SKILL.md)** | Manual | Interviews you, then lays or completes a repository's language-agnostic foundations: AGENTS.md, MADR decision records, LICENSE, .gitignore, .gitattributes, CODEOWNERS, project skills, optional APM and the README. |
 | **[Relational Row Claims](src/skills/relational-row-claims/SKILL.md)** | Manual | Claim columns, indexing and locking syntax for workers that claim rows from a relational table. |
 
 ## Supported agents
