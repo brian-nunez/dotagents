@@ -29,6 +29,7 @@ Done when every inventory row has a status and every stack signal is listed.
 | `.gitignore` | [`references/hygiene.md`](references/hygiene.md) |
 | `.gitattributes` | [`references/hygiene.md`](references/hygiene.md) |
 | `.github/CODEOWNERS` | [`references/hygiene.md`](references/hygiene.md) |
+| `.dockerignore` (optional) | [`references/hygiene.md`](references/hygiene.md) |
 | `AGENTS.md` | [`references/agents-md.md`](references/agents-md.md), [`references/commits.md`](references/commits.md) |
 | `docs/` layout and `docs/adr/` | [`references/adr.md`](references/adr.md) |
 | `.agents/skills/` | step 5 |
@@ -43,11 +44,12 @@ Ask in one round. For each question the survey already answered, state the detec
 2.  **Visibility**: public or private.
 3.  **License**: MIT unless Brian names another. Copyright holder defaults to `Brian Nunez`.
 4.  **Code owners**: defaults to `@brian-nunez` for `*`; ask for any path-specific owners.
-5.  **Stack**: languages, frameworks and generated output, used only for `.gitignore` and `.gitattributes`.
-6.  **APM**: manage external skills and MCP servers with APM (`apm.yml`)? Yes or no.
-7.  **Project skills**: recurring project workflows an agent should follow (release, migration, data fix, deploy runbook). Each one named becomes a skill under `.agents/skills/`; none named means no directory.
-8.  **Decisions already made**: architectural decisions that are costly to reverse and already settled (datastore, service boundaries, auth model, hosting). Each becomes an ADR.
-9.  **Extra docs**: `docs/CONTEXT.md` domain glossary, `docs/ROADMAP.md`. Default: neither.
+5.  **Stack**: languages, frameworks and generated output, used only for `.gitignore`, `.gitattributes` and `.dockerignore`.
+6.  **Docker**: add a `.dockerignore`? Default: yes when a `Dockerfile` or compose file exists, otherwise no.
+7.  **APM**: manage external skills and MCP servers with APM (`apm.yml`)? Yes or no.
+8.  **Project skills**: recurring project workflows an agent should follow (release, migration, data fix, deploy runbook). Each one named becomes a skill under `.agents/skills/`; none named means no directory.
+9.  **Decisions already made**: architectural decisions that are costly to reverse and already settled (datastore, service boundaries, auth model, hosting). Each becomes an ADR.
+10. **Extra docs**: `docs/CONTEXT.md` domain glossary, `docs/ROADMAP.md`. Default: neither.
 
 Done when every question has an explicit answer or a confirmed default.
 
@@ -60,7 +62,7 @@ Present the change list, one line per file: **create**, **extend** (append missi
 Work in this order; later files describe the earlier ones.
 
 1.  **Git**: when no repository exists, `git init -b main`.
-2.  **Hygiene files**: `LICENSE`, `.gitignore`, `.gitattributes`, `.github/CODEOWNERS`, per [`references/hygiene.md`](references/hygiene.md).
+2.  **Hygiene files**: `LICENSE`, `.gitignore`, `.gitattributes`, `.github/CODEOWNERS`, and `.dockerignore` when chosen, per [`references/hygiene.md`](references/hygiene.md).
 3.  **APM**, when chosen: per [`references/apm.md`](references/apm.md).
 4.  **Docs**: `docs/adr/` with the template, the index and one MADR record per decision from the interview, per [`references/adr.md`](references/adr.md). Add `docs/CONTEXT.md` and `docs/ROADMAP.md` only when chosen.
 5.  **Project skills**: see step 5.
@@ -77,6 +79,7 @@ For each workflow named in the interview, write `.agents/skills/<kebab-name>/SKI
 *   No template placeholders or comments remain: `grep -nE '\{|<!--' docs/adr/[0-9]*.md` returns only intentional content.
 *   `git check-attr -a -- <a source file> <a binary file>` shows the expected attributes.
 *   `git check-ignore -v .env` matches; `git status --short` lists no file that should be ignored.
+*   With a `.dockerignore` and a `Dockerfile`: every `COPY` and `ADD` source in the `Dockerfile` is outside the ignore patterns.
 *   Every link in `AGENTS.md` and `docs/adr/README.md` resolves to a file.
 
 Done when every check passes, or a failure is reported with its output.

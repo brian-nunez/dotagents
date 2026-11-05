@@ -62,6 +62,45 @@ Add, from the survey:
 *   `linguist-vendored` for vendored third-party code.
 *   Binary rules for any other binary extension present in the repository.
 
+## .dockerignore
+
+Written only when chosen in the interview. It trims the build context so images build faster and carry no secrets, history or local artifacts. Baseline:
+
+```dockerignore
+# Repository metadata
+.git
+.github
+.agents
+.gitignore
+.gitattributes
+.dockerignore
+
+# Docs
+docs
+*.md
+
+# Environment and secrets
+.env
+.env.*
+
+# Docker files
+Dockerfile*
+compose*.yml
+compose*.yaml
+docker-compose*.yml
+docker-compose*.yaml
+
+# OS, editors, logs
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.swp
+*.log
+```
+
+Then add the stack's dependency, build and cache directories (the same ones in the `.gitignore` stack blocks, such as `node_modules`, `dist`, `coverage`, `__pycache__`, `.venv`), so the image installs and builds its own. Read every `COPY` and `ADD` in the `Dockerfile` and keep each source path inside the context; re-include with `!<path>` when a baseline pattern would exclude it (for example `!README.md` when the image ships it).
+
 ## CODEOWNERS
 
 Path: `.github/CODEOWNERS`. Owners must be GitHub users or teams with write access, or GitHub ignores the line.
