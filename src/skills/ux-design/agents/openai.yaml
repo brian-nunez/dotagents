@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX Design"
+  short_description: "Interview, explore, and refine visual UX designs"
+  default_prompt: "Use $ux-design to interview me about what I am building, agree on a design brief, and create an interactive design for review."
