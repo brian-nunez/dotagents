@@ -16,7 +16,7 @@
 <p align="center">
   <img alt="Written in Bash and Markdown" src="https://img.shields.io/badge/written%20in-Bash%20%C2%B7%20Markdown-4338ca?style=flat-square&logo=gnubash&logoColor=white">
   <img alt="Agents: Claude Code, Codex, Gemini, OpenCode" src="https://img.shields.io/badge/agents-Claude%20Code%20%C2%B7%20Codex%20%C2%B7%20Gemini%20%C2%B7%20OpenCode-6366f1?style=flat-square">
-  <img alt="Skills: 9" src="https://img.shields.io/badge/skills-9-4338ca?style=flat-square">
+  <img alt="Skills: 11" src="https://img.shields.io/badge/skills-11-4338ca?style=flat-square">
   <br>
   <a href="https://www.linkedin.com/in/brianjnunez/"><img alt="LinkedIn: Brian Nunez" src="https://img.shields.io/badge/LinkedIn-Brian%20Nunez-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>
 </p>
@@ -62,6 +62,8 @@ Each skill is a directory under [`src/skills/`](src/skills) with a `SKILL.md` fi
 | **[Docker Patterns](src/skills/docker-patterns/SKILL.md)** | Auto | Docker and Docker Compose conventions: image selection, multi-stage builds, health checks, resource limits and file organization. |
 | **[Programming](src/skills/programming/SKILL.md)** | Auto | Tech stack, package managers and coding standards for software engineering tasks. |
 | **[README Writing](src/skills/readme-writing/SKILL.md)** | Auto | Writes a README in a fixed house style, then renders and checks it visually with the bundled [scripts](src/skills/readme-writing/scripts). |
+| **[UI Design](src/skills/ui-design/SKILL.md)** | Auto | Designs the look, feel and UX of a page or screen: discovery interview, confirmed brief, grayscale directions, an HTML mockup and screenshot-driven self-critique, with bundled tokens, palettes and icons. |
+| **[UX Design](src/skills/ux-design/SKILL.md)** | Auto | Uses an adaptive discovery interview, an agreed brief and iterative design-tool or isolated HTML mockups to refine visual direction, UX flows and responsive interfaces, with 14 focused references. |
 | **[Decommissioning](src/skills/decommissioning/SKILL.md)** | Manual | Procedures for tearing down infrastructure, services, databases and networks. |
 | **[Infrastructure and Networking](src/skills/infrastructure-and-networking/SKILL.md)** | Manual | Guidelines for deploying, managing and securing servers, networks and services. |
 | **[Messaging Architecture](src/skills/messaging-architecture/SKILL.md)** | Manual | Shapes an audience-first message before writing slides, diagrams, a talk track or a document. |
