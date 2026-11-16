@@ -100,9 +100,9 @@ Done when the report carries the link, every open decision, and every unverified
 
 ## 8. Record lessons
 
-Update the observations in [roster.md](references/roster.md): what each model did well, where it slipped, and which briefing moves changed the result. Each line rests on something you saw this run. Prune lines that newer evidence contradicts.
+Reconcile the observations in [roster.md](references/roster.md) by its Observations rules. A lesson is a **portable** claim about a model's capability: the task class it handles, how it fails, and the briefing move that changes its result. The project it came from stays in your report.
 
-Done when every model dispatched this run has its observations reconciled.
+Done when every model dispatched this run has its entries reconciled, and every new or changed entry passes the roster's portability test.
 
 ## Handoffs
 
