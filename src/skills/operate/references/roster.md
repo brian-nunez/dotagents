@@ -18,6 +18,20 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
 2. **GPT-6.1 Sol** and **Gemini 4 Argon**. Strong. Their findings are usually sound and still get checked against Brian's intent.
 3. **Gemini 3.8 Flash**. Fast and cheap, with shallow judgement. Good for mechanical sweeps and catching gaps. Its findings are leads that you verify one by one before acting.
 
+## Observations
+
+Observations record what each model can and cannot do, so any operator on any project dispatches and briefs it well. Every entry is **portable**: it would change how you dispatch or brief that model on an unrelated repository. Project lessons (the feature built, the defects found, file names, repo tooling quirks) go in the run's report or the project's own docs.
+
+Write each entry in one slot, naming the task class and effort generically ("security review of a backend service, high effort", "multi-file build from a spec"):
+
+- **Reliable at:** task class, effort: behaviour you can count on.
+- **Weak at:** task class, effort: the failure mode. Compensate: the briefing or verification move that covers it.
+- **Brief it with:** a briefing move that changed this model's result.
+
+End each entry with its evidence, `(seen once)` or `(repeated)`. Reconcile before adding: mark an entry `(repeated)` when a run confirms it, rewrite or prune it when a run contradicts it, and add a line only for a capability no entry covers. Moves that hold for every model go in [Briefing moves](#briefing-moves-that-changed-results).
+
+Portability test, applied to every new or changed entry: it names no project, phase, feature, file, package, or specific defect, and it would still hold on an unrelated repository.
+
 ## Approved models
 
 ### Claude Opus 5.5, medium effort
@@ -25,7 +39,7 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
 - **Dispatch:** native subagent (`Agent`), provider `claudeAgent`, model `claude-opus-5-5`, effort `medium`.
 - **Use for:** implementation, integration, repo-wide changes, work that needs this harness's tools or Claude-side skills. The default whenever no reason points elsewhere.
 - **Fallback:** Claude Sonnet 5.5 natively. Cross-family review still needs a non-Claude reviewer.
-- **Observed:** not yet dispatched as a subagent. Record behaviour after the first run.
+- **Observed:** not yet dispatched as a subagent.
 
 ### GPT-6.1 Sol, low effort
 
@@ -33,25 +47,23 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
 - **Use for:** building from a written spec, design implementation, mechanical fixes with a tight fence, independent review of Claude or Gemini work.
 - **Fallback:** Claude Opus 5.5 for builds. Gemini 3.8 Flash for reviews.
 - **Observed:**
-  - Follows a detailed brief closely, including skills' multi-step workflows, once told the brief satisfies their interview gates.
-  - Reports unverified items honestly. Reports a gate failure it did not cause instead of working around it.
-  - Stays inside a scope fence.
-  - Its self-critique catches rule violations (axe, overflow, greps) and misses taste problems, redundancy, and regressions its own fix introduced.
-  - Produces exhaustive artifacts (62 screenshots) unless the brief names a shortlist.
+  - **Reliable at:** builds from a detailed brief: follows it closely, including a skill's multi-step workflow once the brief satisfies its interview gates, and stays inside a scope fence. (seen once)
+  - **Reliable at:** reporting: lists unverified items honestly, and reports a gate failure it did not cause instead of working around it. (seen once)
+  - **Weak at:** self-critique of its own build: catches rule violations (accessibility checks, overflow, greps) and misses taste problems, redundancy, and regressions its own fix introduced. Compensate: an independent review after every round. (seen once)
+  - **Brief it with:** a named shortlist of artifacts. Without one it produces exhaustive output. (seen once)
 
 ### Gemini 4 Argon, medium thinking
 
 - **Dispatch:** provider `antigravity`, model `gemini-4-argon`, `thinking_level: medium` by default, `low` for lighter passes. Limited and expensive quota, so every Argon dispatch needs a reason. Use `high` only when Brian asks for it or the reasoning clearly demands it.
 - **Use for:** research that needs reasoning, brainstorming with a recommendation, independent review of high-stakes builds.
 - **Fallback:** Gemini 3.8 Flash, then GPT-6.1 Sol for reviews, then Claude Opus or Sonnet on `antigravity`.
-- **Observed:**
-  - Grounds output in source and cites evidence. Across five reviews it never invented an API.
-  - As an unanchored reviewer it found redundancy, broken wrapping, regressions, and contrast failures the builder's checks passed. It quantified problems (contrast ratios) rather than restating hunches.
-  - Discovers repo conventions from docs without being told (SHA-pinned actions).
-  - Optimises for completeness. Prune its output for audience.
-  - Can miss a UI defect that looks intentional (a cut-off scroll strip).
-  - Its sandbox cannot write outside the workspace.
-  - These observations come from runs at `high`. Recalibrate them as medium-effort runs come in.
+- **Constraint:** its sandbox cannot write outside the workspace.
+- **Observed** (all at `high`; recalibrate as medium-effort runs come in):
+  - **Reliable at:** grounded review: cites source evidence and has not invented an API. (repeated)
+  - **Reliable at:** unanchored UI review: finds redundancy, layout breakage, regressions, and contrast failures that builder checks pass, and quantifies them instead of restating hunches. (seen once)
+  - **Reliable at:** discovering repo conventions from docs without being told. (seen once)
+  - **Weak at:** UI review: misses a defect that looks intentional. Compensate: name suspect categories in the review brief. (seen once)
+  - **Brief it with:** the audience for the output. It optimises for completeness, so prune what it returns. (seen once)
 
 ### Gemini 3.8 Flash, high thinking
 
@@ -59,8 +71,8 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
 - **Use for:** sweeps and triage, link and fact checks, inventories, completeness audits, first-pass and document review, summarising long material into a file.
 - **Fallback:** `gpt-oss-120b-medium` on `antigravity` for mechanical work, GPT-6.1 Sol for reviews.
 - **Observed:**
-  - As the reviewer of this skill it read the writing standard and sibling skills unprompted and returned 12 quoted findings with replacement text. Most were sound: missing loop breaker, quota fallbacks, completion criteria, repo layout.
-  - Applies style rules literally and lacks the judgement to see past them. It proposed cutting Brian's own framing words, and it labels taste preferences as "major". Re-rank its severities yourself.
+  - **Reliable at:** document review against a writing standard: reads the standard and related documents unprompted and returns quoted findings with replacement text, most of them structurally sound. (seen once)
+  - **Weak at:** judgement in review: applies style rules literally, proposes cutting deliberate framing, and labels taste preferences as major. Compensate: re-rank its severities and check every finding yourself. (seen once)
   - Brian's assessment: not very intelligent at high thinking. Use it where breadth matters more than judgement, and treat every finding as unconfirmed until you check it.
 
 ## Also available through the Google subscription
