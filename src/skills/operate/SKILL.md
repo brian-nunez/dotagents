@@ -40,6 +40,7 @@ Choose agents from [roster.md](references/roster.md), which holds each model's r
 - **Claude is the plentiful tier.** It is the default for implementation, integration, and anything without a reason to go elsewhere.
 - **OpenAI and Google are scarce tiers.** Spend them where a different model family pays off: independent review, design builds, research breadth. Prefer Gemini 3.8 Flash for sweeps, triage, and first-pass review. Reserve Gemini 4 Argon for reasoning that earns it.
 - **Size effort to the task.** Start at the roster's default, raise it for design or complex builds, and return to the default for fix rounds.
+- **Use a proven skill when one fits.** [skills.md](references/skills.md) maps Brian's task skills to the work they cover and says which ones only you run.
 - **Do it yourself** when the work is a handful of tool calls or a fact you can check in seconds.
 - **Use the fewest agents that cover the work.** Run independent tasks in parallel. Run dependent ones as a pipeline through handoff files, which keeps your own context lean.
 

@@ -39,9 +39,9 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
   - Its self-critique catches rule violations (axe, overflow, greps) and misses taste problems, redundancy, and regressions its own fix introduced.
   - Produces exhaustive artifacts (62 screenshots) unless the brief names a shortlist.
 
-### Gemini 4 Argon, high thinking
+### Gemini 4 Argon, medium thinking
 
-- **Dispatch:** provider `antigravity`, model `gemini-4-argon`, `thinking_level: high`. Limited quota.
+- **Dispatch:** provider `antigravity`, model `gemini-4-argon`, `thinking_level: medium` by default, `low` for lighter passes. Limited and expensive quota, so every Argon dispatch needs a reason. Use `high` only when Brian asks for it or the reasoning clearly demands it.
 - **Use for:** research that needs reasoning, brainstorming with a recommendation, independent review of high-stakes builds.
 - **Fallback:** Gemini 3.8 Flash, then GPT-6.1 Sol for reviews, then Claude Opus or Sonnet on `antigravity`.
 - **Observed:**
@@ -51,6 +51,7 @@ Capability gaps between these models are wide. Opus 5.5 at max effort is in a di
   - Optimises for completeness. Prune its output for audience.
   - Can miss a UI defect that looks intentional (a cut-off scroll strip).
   - Its sandbox cannot write outside the workspace.
+  - These observations come from runs at `high`. Recalibrate them as medium-effort runs come in.
 
 ### Gemini 3.8 Flash, high thinking
 
