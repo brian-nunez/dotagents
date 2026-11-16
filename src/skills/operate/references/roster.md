@@ -10,6 +10,14 @@ The models Brian has approved for dispatch, with their budget tier and observed 
 | OpenAI, $20/month | Scarce | GPT-6.1 Sol |
 | Google, $20/month | Scarce, uneven | Gemini 4 Argon (limited), Gemini 3.8 Flash (generous), plus Opus, Sonnet, and GPT-OSS 120B through the Google provider |
 
+## Capability ranking
+
+Capability gaps between these models are wide. Opus 5.5 at max effort is in a different class from Gemini 3.8 Flash at high. Match the model to the judgement a task needs, and weigh every result by who produced it.
+
+1. **Claude Opus 5.5** (the operator, and native subagents at medium). Strongest reasoning and judgement.
+2. **GPT-6.1 Sol** and **Gemini 4 Argon**. Strong. Their findings are usually sound and still get checked against Brian's intent.
+3. **Gemini 3.8 Flash**. Fast and cheap, with shallow judgement. Good for mechanical sweeps and catching gaps. Its findings are leads that you verify one by one before acting.
+
 ## Approved models
 
 ### Claude Opus 5.5, medium effort
@@ -51,7 +59,8 @@ The models Brian has approved for dispatch, with their budget tier and observed 
 - **Fallback:** `gpt-oss-120b-medium` on `antigravity` for mechanical work, GPT-6.1 Sol for reviews.
 - **Observed:**
   - As the reviewer of this skill it read the writing standard and sibling skills unprompted and returned 12 quoted findings with replacement text. Most were sound: missing loop breaker, quota fallbacks, completion criteria, repo layout.
-  - Applies style rules literally. It proposed cutting Brian's own framing words. Weigh its style findings against Brian's intent before applying them.
+  - Applies style rules literally and lacks the judgement to see past them. It proposed cutting Brian's own framing words, and it labels taste preferences as "major". Re-rank its severities yourself.
+  - Brian's assessment: not very intelligent at high thinking. Use it where breadth matters more than judgement, and treat every finding as unconfirmed until you check it.
 
 ## Also available through the Google subscription
 
