@@ -1,6 +1,6 @@
 ---
 name: project-foundations
-description: Interview, then lay or complete the language-agnostic foundations of a repository: AGENTS.md, docs/ with MADR decision records, README, LICENSE, .gitignore, .gitattributes, CODEOWNERS, project skills and optional APM.
+description: "Interview, then lay or complete the language-agnostic foundations of a repository: AGENTS.md, docs/ with MADR decision records, README, LICENSE, .gitignore, .gitattributes, CODEOWNERS, project skills and optional APM."
 disable-model-invocation: true
 ---
 # Project Foundations
